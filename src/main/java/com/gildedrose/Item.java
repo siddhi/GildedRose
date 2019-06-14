@@ -30,4 +30,12 @@ public class Item {
 		    quality = quality + 1;
 		}
 	}
+
+	void clearQuality() {
+		quality = 0;
+	}
+
+	void decrementSellIn() {
+		sellIn = sellIn - 1;
+	}
 }
