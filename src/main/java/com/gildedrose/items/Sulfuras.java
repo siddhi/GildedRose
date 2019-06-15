@@ -1,19 +1,11 @@
 package com.gildedrose.items;
 
-public class Sulfuras extends Item {
-	public Sulfuras(int sellIn, int quality) {
-		super("Sulfuras, Hand of Ragnaros", sellIn, quality);
-	}
+import com.gildedrose.items.features.LegendaryItem;
+import com.gildedrose.types.BoundedCounter;
 
-	@Override
-	void updateQuality() {
-	}
-	
-	@Override
-	void updateSellIn() {
-	}
-	
-	@Override
-	void updateQualityOfExpiredItem() {
+public class Sulfuras extends Item implements LegendaryItem {
+	public Sulfuras(int sellIn) {
+		super("Sulfuras, Hand of Ragnaros", sellIn, 80);
+		quality = new BoundedCounter(80, 80, 80);
 	}
 }

@@ -3,6 +3,7 @@ package com.gildedrose;
 import com.gildedrose.items.AgedBrie;
 import com.gildedrose.items.BackstagePass;
 import com.gildedrose.items.Item;
+import com.gildedrose.items.RegularItem;
 import com.gildedrose.items.Sulfuras;
 import com.gildedrose.items.TownPortal;
 
@@ -11,15 +12,14 @@ public class TexttestFixture {
         System.out.println("OMGHAI!");
 
         Item[] items = new Item[] {
-                new Item("+5 Dexterity Vest", 10, 20), //
+                new RegularItem("+5 Dexterity Vest", 10, 20), //
                 new AgedBrie(2, 0), //
-                new Item("Elixir of the Mongoose", 5, 7), //
-                new Sulfuras(0, 80), //
-                new Sulfuras(-1, 80),
+                new RegularItem("Elixir of the Mongoose", 5, 7), //
+                new Sulfuras(0), //
+                new Sulfuras(-1),
                 new BackstagePass(15, 20),
                 new BackstagePass(10, 49),
                 new BackstagePass(5, 49),
-                // this conjured item does not work properly yet
                 new TownPortal(3, 6) };
 
         GildedRose app = new GildedRose(items);

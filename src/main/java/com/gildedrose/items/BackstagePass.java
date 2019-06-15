@@ -1,12 +1,15 @@
 package com.gildedrose.items;
 
-public class BackstagePass extends Item {
+import com.gildedrose.items.features.ItemExpires;
+import com.gildedrose.items.features.ItemUnusableAfterExpiry;
+import com.gildedrose.types.BoundedCounter;
+
+public class BackstagePass extends Item implements ItemExpires, ItemUnusableAfterExpiry {
 	public BackstagePass(int sellIn, int quality) {
 		super("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);
 	}
 	
-	@Override
-	void updateQuality() {
+	public void updateQuality(BoundedCounter quality) {
 		quality.increment();
 		
         if (sellIn < 11) {
@@ -16,10 +19,5 @@ public class BackstagePass extends Item {
         if (sellIn < 6) {
             quality.increment();
         }
-	}
-	
-	@Override
-	void updateQualityOfExpiredItem() {
-        quality.set(0);
 	}
 }

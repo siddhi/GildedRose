@@ -1,17 +1,10 @@
 package com.gildedrose.items;
 
-public class AgedBrie extends Item {
+import com.gildedrose.items.features.ItemExpires;
+import com.gildedrose.items.features.ItemQualityImproves;
+
+public class AgedBrie extends Item implements ItemExpires, ItemQualityImproves {
 	public AgedBrie(int sellIn, int quality) {
 		super("Aged Brie", sellIn, quality);
-	}
-	
-	@Override
-	void updateQuality() {
-	    quality.increment();		
-	}
-	
-	@Override
-	void updateQualityOfExpiredItem() {
-		quality.increment();
 	}
 }
