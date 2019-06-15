@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.gildedrose.items.AgedBrie;
+import com.gildedrose.items.Item;
+
 public class GildedRoseTest {
 
     @Test
@@ -109,7 +112,12 @@ public class GildedRoseTest {
     }
 
     GildedRose loadItems(String name, int sellIn, int quality) {
-        Item[] items = new Item[] { new Item(name, sellIn, quality) };
+    	Item[] items; 
+    	if (name.equals("Aged Brie")) {
+    		items = new Item[] { new AgedBrie(name, sellIn, quality) };
+    	} else {
+    		items = new Item[] { new Item(name, sellIn, quality) };
+    	}
     	GildedRose app = new GildedRose(items);
     	app.updateQuality();
 		return app;
