@@ -7,6 +7,7 @@ import org.junit.Test;
 import com.gildedrose.items.AgedBrie;
 import com.gildedrose.items.BackstagePass;
 import com.gildedrose.items.Item;
+import com.gildedrose.items.Sulfuras;
 
 public class GildedRoseTest {
 
@@ -116,6 +117,8 @@ public class GildedRoseTest {
     	Item item; 
     	if (name.equals("Aged Brie")) {
     		item = new AgedBrie(name, sellIn, quality);
+    	} else if (name.equals("Sulfuras, Hand of Ragnaros")) {
+    		item = new Sulfuras(name, sellIn, quality);
     	} else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
     		item = new BackstagePass(name, sellIn, quality);
     	} else {

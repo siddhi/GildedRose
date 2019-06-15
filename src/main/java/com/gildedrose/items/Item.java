@@ -40,26 +40,15 @@ public class Item {
 	}
 
 	void updateSellIn() {
-		if (!name.equals("Sulfuras, Hand of Ragnaros")) {
-		    decrementSellIn();
-		}
+	    decrementSellIn();
 	}
 
 	void updateQuality() {
-		if (name.equals("Sulfuras, Hand of Ragnaros")) {
-	    } else {
-		    decrementQuality();
-		}
+	    decrementQuality();
 	}
 
 	void updateQualityOfExpiredItem() {
-		if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-	        clearQuality();
-	    } else if (name.equals("Sulfuras, Hand of Ragnaros")) {
-	    }
-	    else {
-	    	decrementQuality();
-		}
+    	decrementQuality();
 	}
 
 	public void update() {
