@@ -1,54 +1,36 @@
 package com.gildedrose.items;
 
+import com.gildedrose.types.BoundedCounter;
+
 public class Item {
 
     public String name;
 
     public int sellIn;
 
-    public int quality;
+    public BoundedCounter quality;
 
     public Item(String name, int sellIn, int quality) {
         this.name = name;
         this.sellIn = sellIn;
-        this.quality = quality;
+        this.quality = new BoundedCounter(quality, 0, 50);
     }
 
    @Override
    public String toString() {
-        return this.name + ", " + this.sellIn + ", " + this.quality;
+        return this.name + ", " + this.sellIn + ", " + this.quality.value();
     }
 
-	void decrementQuality() {
-		if (quality > 0) {
-		    quality = quality - 1;
-		}
-	}
-	
-	void incrementQuality() {
-		if (quality < 50) {
-		    quality = quality + 1;
-		}
-	}
-
-	void clearQuality() {
-		quality = 0;
-	}
-
-	void decrementSellIn() {
-		sellIn = sellIn - 1;
-	}
-
 	void updateSellIn() {
-	    decrementSellIn();
+	    sellIn = sellIn - 1;
 	}
 
 	void updateQuality() {
-	    decrementQuality();
+	    quality.decrement();
 	}
 
 	void updateQualityOfExpiredItem() {
-    	decrementQuality();
+    	quality.decrement();
 	}
 
 	public void update() {

@@ -7,24 +7,19 @@ public class BackstagePass extends Item {
 	
 	@Override
 	void updateQuality() {
-		incrementQuality();
+		quality.increment();
 		
         if (sellIn < 11) {
-            incrementQuality();
+            quality.increment();
         }
 
         if (sellIn < 6) {
-            incrementQuality();
+            quality.increment();
         }
-	}
-	
-	@Override
-	void updateSellIn() {
-		decrementSellIn();
 	}
 	
 	@Override
 	void updateQualityOfExpiredItem() {
-        clearQuality();
+        quality.set(0);
 	}
 }

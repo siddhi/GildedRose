@@ -8,13 +8,13 @@ public class TownPortal extends Item {
 	
 	@Override
 	public void updateQuality() {
-		decrementQuality();
-		decrementQuality();
+		quality.decrement();
+		quality.decrement();
 	}
 	
 	@Override
 	public void updateQualityOfExpiredItem() {
-		decrementQuality();
-		decrementQuality();		
+		quality.decrement();
+		quality.decrement();		
 	}
 }

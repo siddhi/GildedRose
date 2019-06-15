@@ -16,13 +16,13 @@ public class SulfurasTest {
     public void testHandQualityNeverDecreases() {
     	Sulfuras item = new Sulfuras(10, 10);
     	item.update();
-        assertEquals(10, item.quality);    	
+        assertEquals(10, item.quality.value());    	
     }   
 	
     @Test
     public void testHandQualityDoesntChangeAfterExpiry() {
     	Sulfuras item = new Sulfuras(-1, 10);
     	item.update();
-        assertEquals(10, item.quality);
+        assertEquals(10, item.quality.value());
     }
 }

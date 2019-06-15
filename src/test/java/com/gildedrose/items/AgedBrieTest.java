@@ -9,7 +9,7 @@ public class AgedBrieTest {
     public void testBrieQualityIncreasesByOneEveryDay() {
     	AgedBrie item = new AgedBrie(10, 10);
     	item.update();
-        assertEquals(11, item.quality);
+        assertEquals(11, item.quality.value());
     }
     
     @Test
@@ -23,6 +23,6 @@ public class AgedBrieTest {
     public void testAgedBrieQualityIncreasesByTwoAfterExpiry() {
     	AgedBrie item = new AgedBrie(0, 10);
     	item.update();
-        assertEquals(12, item.quality);
+        assertEquals(12, item.quality.value());
     }    
 }

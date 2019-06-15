@@ -9,14 +9,14 @@ public class TownPortalTest {
 	public void testTownPortalQualityDecreasesByTwoEveryDay() {
 		TownPortal item = new TownPortal(10, 10);
 		item.update();
-		assertEquals(8, item.quality);
+		assertEquals(8, item.quality.value());
 	}
 
 	@Test
 	public void testExpiredTownPortalQualityDecreasesByFourEveryDay() {
 		TownPortal item = new TownPortal(0, 10);
 		item.update();
-		assertEquals(6, item.quality);
+		assertEquals(6, item.quality.value());
 	}
 	
 	@Test
