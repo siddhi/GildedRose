@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.gildedrose.items.AgedBrie;
+import com.gildedrose.items.BackstagePass;
 import com.gildedrose.items.Item;
 
 public class GildedRoseTest {
@@ -112,13 +113,15 @@ public class GildedRoseTest {
     }
 
     GildedRose loadItems(String name, int sellIn, int quality) {
-    	Item[] items; 
+    	Item item; 
     	if (name.equals("Aged Brie")) {
-    		items = new Item[] { new AgedBrie(name, sellIn, quality) };
+    		item = new AgedBrie(name, sellIn, quality);
+    	} else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+    		item = new BackstagePass(name, sellIn, quality);
     	} else {
-    		items = new Item[] { new Item(name, sellIn, quality) };
+    		item = new Item(name, sellIn, quality);
     	}
-    	GildedRose app = new GildedRose(items);
+    	GildedRose app = new GildedRose(new Item[] { item });
     	app.updateQuality();
 		return app;
     }

@@ -46,17 +46,7 @@ public class Item {
 	}
 
 	void updateQuality() {
-		if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-			incrementQuality();
-			
-	        if (sellIn < 11) {
-	            incrementQuality();
-	        }
-	
-	        if (sellIn < 6) {
-	            incrementQuality();
-	        }
-		} else if (name.equals("Sulfuras, Hand of Ragnaros")) {
+		if (name.equals("Sulfuras, Hand of Ragnaros")) {
 	    } else {
 		    decrementQuality();
 		}
