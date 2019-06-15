@@ -10,91 +10,6 @@ import com.gildedrose.items.Item;
 import com.gildedrose.items.Sulfuras;
 
 public class GildedRoseTest {
-
-    @Test
-    public void testItemSellInDecreasesByOneEveryDay() {
-    	GildedRose app = loadItems("mouse", 10, 10);
-        assertEquals(9, app.items[0].sellIn);
-    }
-    
-    @Test
-    public void testHandSellInNeverDecreases() {
-    	GildedRose app = loadItems("Sulfuras, Hand of Ragnaros", 10, 10);
-        assertEquals(10, app.items[0].sellIn);    	
-    }
-	
-    @Test
-    public void testHandQualityNeverDecreases() {
-    	GildedRose app = loadItems("Sulfuras, Hand of Ragnaros", 10, 10);
-        assertEquals(10, app.items[0].quality);    	
-    }   
-	
-    @Test
-    public void testRegularItemQualityDecreasesByOneEveryDay() {
-    	GildedRose app = loadItems("mouse", 10, 10);
-        assertEquals(9, app.items[0].quality);
-    }
-    
-    @Test
-    public void testBrieQualityIncreasesByOneEveryDay() {
-    	GildedRose app = loadItems("Aged Brie", 10, 10);
-        assertEquals(11, app.items[0].quality);    	
-    }
-    
-    @Test
-    public void testConcertQualityIncreasesByOneEveryDay() {
-    	GildedRose app = loadItems("Backstage passes to a TAFKAL80ETC concert", 20, 10);
-        assertEquals(11, app.items[0].quality);
-    }
-    
-    @Test
-    public void testConcertQualityIncreasesByTwoInLastTenDays() {
-    	GildedRose app = loadItems("Backstage passes to a TAFKAL80ETC concert", 10, 10);
-        assertEquals(12, app.items[0].quality);
-    }
-    
-    @Test
-    public void testConcertQualityIncreasesByThreeInLastFiveDays() {
-    	GildedRose app = loadItems("Backstage passes to a TAFKAL80ETC concert", 5, 10);
-        assertEquals(13, app.items[0].quality);    	
-    }
-    
-    @Test
-    public void testQualityDoesntGoBelowZero() {
-    	GildedRose app = loadItems("mouse", 10, 0);
-        assertEquals(0, app.items[0].quality);    	
-    }
-    
-    @Test
-    public void testQualityMaxesAtFifty() {
-    	GildedRose app = loadItems("Aged Brie", 10, 50);
-        assertEquals(50, app.items[0].quality);
-    }
-    
-    @Test
-    public void testRegularItemDecreasesQualityByTwoAfterExpiry() {
-    	GildedRose app = loadItems("mouse", 0, 10);
-        assertEquals(8, app.items[0].quality);    	
-    }
-    
-    @Test
-    public void testConcertQualityIsZeroAfterExpiry() {
-    	GildedRose app = loadItems("Backstage passes to a TAFKAL80ETC concert", 0, 10);
-        assertEquals(0, app.items[0].quality);
-    }
-  
-    @Test
-    public void testHandQualityDoesntChangeAfterExpiry() {
-    	GildedRose app = loadItems("Sulfuras, Hand of Ragnaros", -1, 10);
-        assertEquals(10, app.items[0].quality);
-    }
-    
-    @Test
-    public void testAgedBrieQualityIncreasesByTwoAfterExpiry() {
-    	GildedRose app = loadItems("Aged Brie", 0, 10);
-        assertEquals(12, app.items[0].quality);
-    }
-    
     @Test
     public void testQualityIsBoundedBetweenZeroAndFifty() {
     	String[] items = new String[] { 
@@ -116,11 +31,11 @@ public class GildedRoseTest {
     GildedRose loadItems(String name, int sellIn, int quality) {
     	Item item; 
     	if (name.equals("Aged Brie")) {
-    		item = new AgedBrie(name, sellIn, quality);
+    		item = new AgedBrie(sellIn, quality);
     	} else if (name.equals("Sulfuras, Hand of Ragnaros")) {
-    		item = new Sulfuras(name, sellIn, quality);
+    		item = new Sulfuras(sellIn, quality);
     	} else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-    		item = new BackstagePass(name, sellIn, quality);
+    		item = new BackstagePass(sellIn, quality);
     	} else {
     		item = new Item(name, sellIn, quality);
     	}
